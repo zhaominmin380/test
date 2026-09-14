@@ -18,6 +18,10 @@
           <span class="excel-mark" aria-hidden="true">X</span>
           <span class="workbook-title">v20-12-組一(錢老金寶)</span>
         </div>
+        <div class="title-actions">
+          <button class="workbook-lock-button" id="workbook-lock-button" type="button" aria-pressed="true">🔒 已上鎖</button>
+          <button class="change-password-button" id="change-password-button" type="button" disabled>更改密碼</button>
+        </div>
       </header>
 
       <nav class="ribbon" aria-label="活頁簿功能列">
@@ -54,5 +58,31 @@
         </div>
       </footer>
     </div>
+
+    <dialog class="lock-dialog" id="lock-dialog" aria-labelledby="lock-dialog-title">
+      <form class="lock-dialog-form" id="lock-dialog-form" novalidate>
+        <h2 id="lock-dialog-title">解除工作簿鎖定</h2>
+        <p id="lock-dialog-description">輸入密碼後，即可編輯所有資料欄位。</p>
+        <label class="password-field" id="current-password-field">
+          <span>目前密碼</span>
+          <input id="current-password" type="password" required autocomplete="current-password" />
+        </label>
+        <label class="password-field" id="new-password-field" hidden>
+          <span>新密碼</span>
+          <input id="new-password" type="password" minlength="4" autocomplete="new-password" />
+        </label>
+        <label class="password-field" id="confirm-password-field" hidden>
+          <span>確認新密碼</span>
+          <input id="confirm-password" type="password" minlength="4" autocomplete="new-password" />
+        </label>
+        <p class="lock-dialog-error" id="lock-dialog-error" role="alert" hidden></p>
+        <div class="lock-dialog-actions">
+          <button class="dialog-cancel" id="lock-dialog-cancel" type="button">取消</button>
+          <button class="dialog-submit" id="lock-dialog-submit" type="submit">解鎖</button>
+        </div>
+      </form>
+    </dialog>
+
+    <section class="history-filter-menu" id="history-filter-menu" hidden aria-label="欄位篩選"></section>
   </body>
 </html>
